@@ -1,0 +1,33 @@
+<div>
+  <h2>账号注册</h2>
+
+  <!-- maxlength: 最大位数 -->
+  <input type="text" maxlength="11" id="phone" placeholder="请输入手机号">
+  <div class="info">
+    <p class="err">手机号格式错误</p>
+    <p class="err">手机号码已注册!</p>
+    <p class="ok">手机号码正确</p>
+  </div>
+
+  <input type="password" id="pwd" placeholder="请输入密码">
+  <div class="info">
+    <p class="err">长度必须6~12位之间</p>
+    <p class="ok">密码格式正确</p>
+  </div>
+
+  <input type="password" id="repwd" placeholder="请再次输入密码">
+  <div class="info">
+    <p class="err">密码不一致</p>
+    <p class="ok">密码一致</p>
+  </div>
+
+  <div class="agree">
+    <label>
+      <input type="checkbox">
+      <span>我已阅读并同意</span>
+    </label>
+    <a href="">美食广场用户使用协议</a>
+  </div>
+
+  <button id="register">注册</button>
+</div>

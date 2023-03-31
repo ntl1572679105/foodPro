@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>正则替换</title>
+</head>
+
+<body>
+  <!-- 正则表达式: Regular Expression;  简称 RegExp -->
+  <!-- 正则表达式 用于 对字符串进行模糊的匹配操作; 正则非JS专属 -->
+
+  <!-- 为什么要引入正则? -->
+  <!-- 
+    1. replace: 单纯用字符串搜索, 只能查询到第一个满足条件的, 无法忽略大小写
+    2. 正则方案: 提供了 g 和 i 的方式 -- 全局 + 忽略大小写
+    3. 构造new: 要根据搜索的内容 实时创建正则表达式
+    4. 英文进行替换时, 由于忽略大小写的搜索, 要保持原有的 英文字符, 采用捕获组来捕捉
+   -->
+
+  <input id="inp1" type="text">
+  <p id="p1"></p>
+
+  <script>
+    var words = 'AA BB CC DD AA BB CC DD aa bb cc dd'
+
+    // 任务: 监听输入框的输入, 实时搜索 并 高亮
+    inp1.oninput = function () {
+      console.log(this.value)
+
+      // 技术点: 如何通过变量 动态生成 正则表达式?
+      // 正则有两种生成方式:
+      // 1. 字面量语法   /正则/gi   -> 适合固定的
+      // 2. 构造语法  new RegExp(正则, 修饰符)
+
+      // 利用捕获组: (), 获取实际匹配到的字符
+      var re = new RegExp(`(${this.value})`, 'gi')
+
+      console.log('正则对象:', re)
+      // $1 : 第一个() 捕捉的字符
+      var res = words.replace(re,
+        `<span style='color:red;'>$1</span>`)
+
+      p1.innerHTML = res
+    }
+
+
+
+
+
+    // 1. 把 AA 换成 呵呵
+    // 默认设定: 仅替换 第一个找到的 元素
+    var res = words.replace('AA', '呵呵')
+    console.log(res)
+
+    // 2. 全局替换, 需要正则表达式的支持
+    // 格式  /正则表达式/修饰符
+    // 修饰符: g - 全局;   i - 忽略大小写
+    var res = words.replace(/AA/gi, '呵呵')
+    console.log(res)
+
+    ////////////////////////////////////////
+    // 正则的 捕获组:  ()
+    var phone = '18855554444'
+    // \d :代表1个数字    {n} : 代表连续 n 个
+    var re1 = /(\d{3})(\d{4})(\d{4})/
+    //           1      2       3
+    // $n: 第n个小括号中的正则 匹配到的 具体字符
+    var res = phone.replace(re1, '$1-$2-$3')
+    console.log(res)
+  </script>
+</body>
+
+</html>

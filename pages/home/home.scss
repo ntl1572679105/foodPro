@@ -1,0 +1,300 @@
+#body {
+  > .top-video {
+    background-color: #f7f7f7;
+
+    > div {
+      width: var(--width);
+      margin: 0 auto;
+
+      > div {
+        display: flex;
+        justify-content: space-between;
+        padding: 10px 0;
+        align-items: center;
+
+        > a {
+          color: white;
+          font-weight: bold;
+          line-height: 1.8em;
+          padding: 0 10px;
+          border-radius: 100px;
+          background-image: linear-gradient(to right, #f67236, #f64f36);
+        }
+      }
+
+      > ul {
+        justify-content: space-between;
+        padding-bottom: 20px;
+
+        > li {
+          position: relative;
+
+          > div {
+            // 绝对定位: 相对祖先元素中, 首个定位方式的元素进行位置调整
+            // 子绝父相: 如果父元素不是定位类型, 可以改成相对定位. 因为相对定位不会影响元素原本的位置
+
+            // 此处父元素本身就是定位类型, 不用再修改成相对!
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+
+            > i {
+              background-size: 100px;
+              width: 63px;
+              height: 77px;
+              // border: 1px solid red;
+              background-position: -24px -32px;
+              position: absolute;
+              left: 50%;
+              top: 50%;
+              transform: translate(-50%, -50%);
+            }
+
+            > b {
+              position: absolute;
+              left: 20px;
+              bottom: 20px;
+              font-size: 20px;
+              color: white;
+            }
+          }
+
+          width: calc((100% - 3 * 10px) / 4);
+          height: 500px;
+          border-radius: 6px;
+          overflow: hidden;
+          cursor: pointer;
+
+          > video {
+            filter: blur(2px);
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+          }
+
+          transition: 0.3s;
+
+          &.active {
+            width: 400px;
+
+            > div {
+              display: none;
+            }
+
+            > video {
+              filter: blur(0);
+            }
+          }
+          &.noactive {
+            width: calc((100% - 400px - 3 * 10px) / 3);
+          }
+        }
+      }
+    }
+  }
+
+  > .main {
+    width: var(--width);
+    margin: 0 auto;
+
+    > .area-1 {
+      display: flex;
+      justify-content: space-between;
+
+      > div:nth-child(1) {
+        width: 70%;
+        // border: 3px solid blue;
+
+        > .hot-search {
+          > h2 {
+            padding: 10px 0;
+          }
+
+          > ul {
+            li {
+              margin: 0 10px 10px 0;
+
+              > a {
+                display: inline-block;
+                background-color: #f5f5f5;
+                line-height: 2;
+                padding: 0 10px;
+                border-radius: 100px;
+                cursor: pointer;
+
+                &.active {
+                  background-color: #fee4e1;
+                  color: var(--color-primary);
+                }
+              }
+            }
+          }
+        }
+
+        > .today-meal {
+          margin-top: 10px;
+
+          > .bar-title {
+            display: flex;
+
+            > ul {
+              > li {
+                line-height: 2;
+                padding: 0 10px;
+                border-radius: 100px;
+                background-color: #eee;
+                color: #666;
+                font-weight: bold;
+                margin-left: 20px;
+                cursor: pointer;
+
+                &.active {
+                  color: white;
+                  background-color: var(--color-primary);
+                }
+              }
+            }
+          }
+
+          > .swiper {
+            margin-top: 10px;
+
+            > .swiper-wrapper {
+              > .swiper-slide {
+                display: flex;
+                flex-direction: column;
+
+                > img {
+                  height: 300px;
+                  border-radius: 6px;
+                }
+              }
+            }
+          }
+        }
+      }
+
+      > div:nth-child(2) {
+        margin-top: 20px;
+
+        width: 29%;
+        border-radius: 6px;
+        overflow: hidden;
+
+        position: relative;
+
+        > div {
+          position: absolute;
+          color: white;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          bottom: 30px;
+          width: 100%;
+        }
+
+        > img.bg {
+          width: 100%;
+          height: 100%;
+          transition: 0.5s;
+        }
+
+        > img.hand {
+          position: absolute;
+          right: -180px;
+          top: 180px;
+          width: 180px;
+          transition: 0.5s;
+
+          transform: rotate(45deg);
+        }
+
+        &.active {
+          > img.hand {
+            right: 0;
+            transform: rotate(0);
+          }
+
+          > img.bg {
+            filter: blur(2px);
+            transform: scale(1.2);
+          }
+        }
+      }
+    }
+
+    > .index-items {
+      margin-bottom: 20px;
+
+      > div {
+        > h2 {
+          margin: 20px 0 10px 0;
+        }
+        > ul {
+          justify-content: space-between;
+
+          > li {
+            width: calc((100% - 4 * 10px) / 5);
+            display: flex;
+            flex-direction: column;
+
+            &:hover {
+              > b {
+                color: var(--color-primary);
+              }
+              > div > span {
+                bottom: 0;
+              }
+            }
+
+            > div {
+              > img {
+                width: 100%;
+                height: 250px;
+              }
+
+              position: relative;
+              border-radius: 6px;
+              overflow: hidden;
+
+              > span {
+                font-size: 14px;
+                position: absolute;
+                bottom: -2em;
+                width: 100%;
+
+                transition: 0.3s;
+                background-color: rgba(0, 0, 0, 0.5);
+                color: white;
+                line-height: 2;
+                text-align: center;
+              }
+            }
+            > b {
+            }
+            > span {
+              font-size: 12px;
+
+              // 伪元素选择器 ::before 在其前方添加内容
+              &::before {
+                // 精灵图
+                content: "";
+                // css文件中的相对路径, 就是相对css文件所在目录
+                background-image: url(../../assets/img/453.png);
+                display: inline-block;
+                width: 15px;
+                height: 15px;
+                // border: 1px solid red;
+                background-size: 24px;
+                background-position: 0 -48px;
+                transform: translateY(5px);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

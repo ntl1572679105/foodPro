@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>精灵图 的使用</title>
+
+  <style>
+    body {
+      background-color: #aaa;
+    }
+
+    /* i 标签默认是行元素, 无法指定宽高 */
+    /* 搭配精灵图使用, 必须改为 行内块 */
+    i {
+      display: inline-block;
+      /* 调节宽高到 合适的大小 */
+      width: 62px;
+      height: 77px;
+      /* border: 1px solid red; */
+      /* 调节背景图的大小;  1个值是宽度;  两个值是 宽,高 */
+      background-size: 100px;
+      /* 移动背景图位置, 到左上角 */
+      /* 值: x y */
+      background-position: -23px -32px;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- 精灵图 适合 小图标 icon -->
+
+  <!-- i: italic 斜体;  i 标签的本意是 斜体标签 -->
+  <!-- 实际开发时, 由于 icon 也是 i 开头; i标签往往被认为是 icon 搭配精灵图使用 -->
+  <i>斜体</i>
+
+  <i style="background-image: url(../assets/img/979.png);"></i>
+</body>
+
+</html>

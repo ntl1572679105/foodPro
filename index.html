@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- 通用样式 -->
+  <link rel="stylesheet" href="./common/css/reset.css">
+  <link rel="stylesheet" href="./common/css/base.css">
+
+  <!-- 动画库 -->
+  <link rel="stylesheet" href="./node_modules/animate.css/animate.min.css">
+
+  <!-- 特定样式 -->
+  <link rel="stylesheet" href="./components/footer/footer.css">
+  <link rel="stylesheet" href="./components/header/header.css">
+
+  <!-- 假设当前是home页面 -->
+  <!-- <link rel="stylesheet" href="./pages/home/home.css"> -->
+
+  <title>美食广场</title>
+  <!-- 标签栏图标: 固定的文件类型 -- ico -->
+  <!-- 有很多在线生成ico的网站, 可以百度搜索 ico生成;  -->
+  <!-- 例如: www.ico51.cn -->
+  <link rel="shortcut icon" href="./assets/img/favicon.ico" type="image/x-icon">
+</head>
+
+<body>
+  <!-- SPA应用 - 单页应用 -->
+  <!-- index.html  -- 所有的服务器默认设定: 把名称是 index.html 的文件作为服务器的首页使用 -->
+
+  <!-- 页面整体是 上中下结构 -->
+  <div id="header"></div>
+  <div id="body"></div>
+  <div id="footer"></div>
+
+  <!-- 拆分到外部的 html 文件, 要根据用途 存放在不同的目录下 -->
+  <!-- 
+    路由系统 切换的页面, 属于同一类,  即根据路径 局部变化的
+    存放在 pages 文件夹下
+
+    头和脚, 属于组成页面的一部分, 但是不被路由系统影响
+    存放在 components(组件-组成整体的零件) 文件夹下
+  -->
+
+  <!-- 公共资源 common : 全局的css, js 代码 -->
+
+  <!-- 多媒体资源(assets/resources): 图片/视频/音频 -->
+
+  <script src="./node_modules/jquery/dist/jquery.min.js"></script>
+
+  <!-- <script src="./components/header/header.js"></script> -->
+
+  <script>
+    // 在 html 加载完毕后, 再加载关联的 JS 
+    $('#header').load('./components/header/header.html', function () {
+
+      var s = document.createElement('script')
+      s.src = './components/header/header.js'
+      $('body').append(s)
+
+    })
+
+    $('#footer').load('./components/footer/footer.html')
+
+    // 路由系统: 
+    // 读取路径中的参数p 的值, 然后拼接出对应的页面路径
+    // 利用 load 方法加载到 #body 元素里
+    const params = new URLSearchParams(location.search)
+    // 逻辑短路: ||
+    // 值1 || 值2 || 值3...
+    // 这个表达式的值 是从左到右 首个真值, 适合为表达式设置默认值
+    const p = params.get('p') || 'home'
+
+    console.log(`要加载的页面地址: ./pages/${p}/${p}.html`)
+
+    // 引入的先后顺序问题: js 和 css 需要依赖 html 
+    // load: 属于异步操作, 通过回调函数来通知 加载完毕的时机
+    $('#body').load(`./pages/${p}/${p}.html`, function () {
+      // 一个页面由3个文件组成: html css 和 js
+      // 能否对应的在 head 标签中添加 css的link引入操作?
+      // 动态在 head 标签中, 添加子元素 link 标签
+      $('head').append(`<link rel="stylesheet" href="./pages/${p}/${p}.css">`)
+      // 关于报错: 需要给 pages 中的每个页面, 增加一个对应的css文件
+
+      // 动态加载 页面的js 文件
+
+      // 注意: 不能通过字符串添加 脚本的引入, 会把 < /script> 错认为是结尾标签
+      // $('body').append(`<script src="./pages/${p}/${p}.js"><script /script>`)
+      // 通过JS代码, 构造一个脚本元素
+      // createElement : 创建元素
+      const sc = document.createElement('script')
+      console.log('sc:', sc)
+      sc.src = `./pages/${p}/${p}.js`
+      $('body').append(sc)
+    })
+  </script>
+</body>
+
+</html>

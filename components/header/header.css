@@ -1,0 +1,62 @@
+#header {
+  background-color: var(--color-primary);
+  min-width: var(--width);
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+#header > div {
+  width: var(--width);
+  margin: 0 auto;
+  display: flex;
+  height: 80px;
+  align-items: center;
+}
+#header > div > img {
+  height: 60px;
+}
+#header > div > .search {
+  background-color: white;
+  padding: 3px;
+  border-radius: 100px;
+  margin-left: 20px;
+}
+#header > div > .search > button {
+  border-radius: 100px;
+  width: 60px;
+  height: 30px;
+}
+#header > div > .search > input {
+  width: 130px;
+  margin-left: 10px;
+}
+#header > div > ul {
+  margin-left: 20px;
+}
+#header > div > ul a {
+  line-height: 80px;
+  display: inline-block;
+  padding: 0 12px;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+}
+#header > div > ul a:hover {
+  background-color: #f8625b;
+}
+#header > div > a {
+  color: white;
+  margin-left: auto;
+}
+#header > div > .user {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+}
+#header > div > .user > a {
+  color: white;
+}
+#header > div > .user > img {
+  width: 30px;
+}/*# sourceMappingURL=header.css.map */

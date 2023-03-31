@@ -1,0 +1,80 @@
+#header {
+  background-color: var(--color-primary);
+  min-width: var(--width);
+
+  // sticky: 沾粘 定位
+  // 效果: 初始时 按照文档流布局; 当滚动时 按照定位的设定来布局;
+  position: sticky;
+  top: 0;
+  // 最顶层
+  z-index: 100;
+
+  > div {
+    // --width: 来自 base.css
+    width: var(--width);
+    margin: 0 auto;
+    display: flex;
+    height: 80px;
+    align-items: center;
+
+    > img {
+      height: 60px;
+    }
+
+    > .search {
+      background-color: white;
+      padding: 3px;
+      // 圆角矩形: 圆角超过 高度即可, 越大越好
+      border-radius: 100px;
+      margin-left: 20px;
+
+      > button {
+        border-radius: 100px;
+        width: 60px;
+        height: 30px;
+      }
+      > input {
+        width: 130px;
+        margin-left: 10px;
+      }
+    }
+
+    > ul {
+      margin-left: 20px;
+
+      a {
+        line-height: 80px;
+        // 行内块: 允许宽高设置
+        display: inline-block;
+        padding: 0 12px;
+        color: white;
+        font-weight: bold;
+        font-size: 20px;
+
+        // 并且:悬浮状态下, 修改背景色
+        &:hover {
+          background-color: #f8625b;
+        }
+      }
+    }
+
+    > a {
+      color: white;
+      margin-left: auto;
+    }
+
+    > .user {
+      margin-left: auto;
+      display: flex;
+      align-items: center;
+
+      > a {
+        color: white;
+      }
+
+      > img {
+        width: 30px;
+      }
+    }
+  }
+}

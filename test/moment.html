@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>moment.js 日期处理库</title>
+</head>
+
+<body>
+  <script src="../node_modules/moment/moment.js"></script>
+
+  <script>
+    // 获取当前的时间戳:  当前时间距离 1970年1月1日凌晨的 (毫)秒数
+    const now = new Date().getTime()  // 默认 毫秒单位
+    console.log('now:', now)
+
+    // format(格式化): 可以根据 令牌 把时间戳转换成对应的字符串格式
+
+    // 范式:  moment(待转换的时间戳).format(目标格式)
+
+    // 令牌参考: http://momentjs.cn/docs/#/displaying/
+    var t = moment(now).format('YYYY年MM月DD日 HH:mm:ss')
+    console.log('t:', t)
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>长期与短期存储的差异 16:20</title>
+</head>
+
+<body>
+  <!-- 删除某一个 -->
+  <button onclick="sessionStorage.removeItem('uname')">会话删除uname</button>
+  <button onclick="localStorage.removeItem('uname')">本地删除uname</button>
+
+  <br>
+
+  <!-- 清空 -->
+  <button onclick="sessionStorage.clear()">清空会话</button>
+  <button onclick="localStorage.clear()">清空本地</button>
+
+  <script>
+    // 短期 session 会话
+    sessionStorage.setItem('uname', '凯凯')
+    sessionStorage.setItem('age', 18)
+
+    // 长期 local 本地
+    localStorage.setItem('uname', '泡泡')
+    localStorage.setItem('age', 20)
+
+    // 测试步骤:
+    // 1. 先运行当前页面, 在后台的 `应用` 中查看 本地存储和会话存储 中的内容
+    // 2. 注释掉 setItem 相关代码, 刷新页面查看 存储的内容是否在?
+    // 3. 关闭网页, 重新打开页面,  再次查看存储的内容
+    // 4. 关闭浏览器, 重新打开页面, 再次查看存储的内容
+    // 5. (可选)  重启电脑, 重新打开页面, 再次查看存储的内容
+
+    // 结论:
+    // session会话中, 属于临时存储, 网页关闭后 就会自动消失
+    // local本地中, 属于长期存储, 只要不主动删除, 就一直存在
+  </script>
+</body>
+
+</html>

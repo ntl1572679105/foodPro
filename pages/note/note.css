@@ -1,0 +1,44 @@
+#body {
+  background-color: #f7f7f7;
+}
+#body > div {
+  width: var(--width);
+  margin: 0 auto;
+}
+#body > div > .list {
+  position: relative;
+}
+#body > div > .list > li {
+  position: absolute;
+  width: calc((100% - 30px) / 4);
+  overflow: hidden;
+  border-radius: 6px;
+  margin: 0 10px 10px 0;
+  box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.1);
+}
+#body > div > .list > li:nth-child(4n) {
+  margin-right: 0;
+}
+#body > div > .list > li > img {
+  width: 100%;
+}
+#body > div > .list > li > div {
+  padding: 5px;
+}
+#body > div > .list > li > div > div {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+#body > div > .list > li > div > div > span {
+  color: #666;
+  font-size: 14px;
+}
+#body > div > .list > li > div > div > div {
+  display: flex;
+}
+#body > div > .list > li > div > div > div > img {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+}/*# sourceMappingURL=note.css.map */

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>音频播放 audio</title>
+</head>
+
+<body>
+  <!-- 多媒体组件 有3种: 图片img 音频audio 视频video -->
+  <!-- 共同点: 利用 src 属性指定资源的地址 -->
+
+  <!-- src: 资源地址 -->
+  <!-- controls: 播放器面板 -->
+  <audio controls src="https://game.gtimg.cn/images/lol/act/img/vo/choose/35.ogg"></audio>
+
+  <button onclick="play()">播放音频</button>
+  <!-- pause: 暂停 -->
+  <button onclick="au.pause()">暂停</button>
+
+  <script>
+    // 可以在全局中创建一个 唯一的播放器, 来实现唯一性的播放
+    const au = new Audio()
+
+    function play() {
+      // 通过JS方式, 创建一个 播放器元素
+      // const au = new Audio()
+      // 设置播放的资源地址
+      au.src = 'https://game.gtimg.cn/images/lol/act/img/vo/choose/20.ogg'
+      // 播放方法
+      au.play()
+    }
+  </script>
+</body>
+
+</html>

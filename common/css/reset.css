@@ -1,0 +1,47 @@
+/* 样式重置 */
+*,
+::before,
+::after {
+  /* 怪异盒子/边框盒子:  宽/高 = 内容+内边距+边框 */
+  /* 这样 设置元素的宽高, 一定是准确的, 不会因为 内边距和边框 而变化 */
+  box-sizing: border-box;
+}
+
+img {
+  /* 解决 幽灵空白节点 问题 */
+  display: block;
+  /* 默认的适配方案: 忽略图片原有比例, 通过拉伸充满显示的大小  */
+  /* cover: 保持原有比例, 覆盖显示区域 */
+  object-fit: cover;
+}
+
+ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+body,
+p,
+ul,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  /* 统一默认字体大小 */
+  font-size: 16px;
+  color: #333;
+}
+
+a {
+  /* 文本装饰: 例如 下划线 */
+  text-decoration: none;
+  color: #333;
+}

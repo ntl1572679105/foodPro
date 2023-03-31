@@ -1,0 +1,34 @@
+<!-- 
+  关于图片的相对路径书写
+
+  对于vscode来说: 相对于 header.html 来说, 上级的上级 才能找到assets
+
+  对于实际运行来说: 当前文件是在 index.html 中运行的,  应该是想对与index.html 来找assets, 路径应该写 ./assets
+ -->
+<div>
+  <img id="logo" class="animate__animated" src="./assets/img/logo.png" alt="">
+
+  <div class="search">
+    <input type="text" placeholder="菜谱名, 食材名">
+    <button>搜索</button>
+  </div>
+
+  <ul>
+    <!-- 路由系统: 根据 路径的变化, 局部加载不同的页面 -->
+    <!-- 路径参数: ?p=页面名 -->
+    <li><a href="?p=home">首页</a></li>
+    <li><a href="?p=video">视频菜谱</a></li>
+    <li><a href="?p=note">笔记</a></li>
+    <li><a href="?p=mall">商城</a></li>
+    <li><a href="?p=live">直播</a></li>
+  </ul>
+
+  <a href="?p=login">登录</a>
+
+  <!-- 用户登录后的信息展示 -->
+  <div class="user">
+    <img src="./assets/img/user_unknown.png" alt="">
+    <!-- 个人信息页 -->
+    <a href="?p=profile"></a>
+  </div>
+</div>

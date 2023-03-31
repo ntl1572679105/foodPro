@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>浏览器存储技术 15:38</title>
+</head>
+
+<body>
+  <!-- 
+    我们的网页在一些场景中, 需要在浏览器中存储一些 持久化 的数据
+    - 持久化: 把数据存储在硬盘中, 不会因为刷新而丢失
+
+    数据库/文件系统 就属于最常见的持久化技术
+
+    WebStorage 提供了两种存储空间
+    - 本地(local): 本地硬盘, 代表长期存储
+    - 会话(session): 代表短暂存储, 即网页开启的这段时间
+   -->
+
+  <script>
+    // clear: 清空
+    // getItem: 获取栏目
+    // setItem: 设置/存储栏目
+    // removeItem: 删除栏目
+
+    // 会话存储: 属于临时存储方式, 当网页关闭后, 则会自动清空
+    // 测试方式: 
+    // 1. 先运行页面 -> 注释掉 setItem -> 刷新页面 -> 发现数据依然存在
+    // 2. 关闭页面后 -> 重新打开 -> 数据消失
+
+    // setItem: 负责存储数据;  参数1:属性名   参数2: 值 -- 只能是字符串
+    // sessionStorage.setItem('uname', '凯凯')
+    // sessionStorage.setItem('age', 32)
+    // 如果参数2 是非字符串, 会隐式类型转换
+    // sessionStorage.setItem('tags', ['楼长', '大忙人'])
+    // sessionStorage.setItem('desc', { phone: '10086' })
+
+    // 对象/数组 应该用 JSON 转换成字符串, 未来使用时 才能重新解析
+    var stu = { sname: "铭铭", age: 33, phone: '16598977787' }
+
+    // stringify: 用于把 对象类型 转为 JSON格式字符串
+    sessionStorage.setItem('stu', JSON.stringify(stu))
+
+    // 读取: getItem
+    var stu1 = sessionStorage.getItem('stu')
+    console.log(stu1) // 这是 JSON 字符串
+
+    // 需要解析才能使用
+    // parse: 用于把 JSON字符串 解析回 原始的对象格式
+    console.log('解析后:', JSON.parse(stu1))
+
+    // 测试把 sessionStorage 换成 localStorage, 同样的方式再测试一次
+
+  </script>
+</body>
+
+</html>

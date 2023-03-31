@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>触底操作 10:15</title>
+</head>
+
+<body style="margin: 0;">
+  <!-- 
+    如果一个页面的内容特别多, 服务器如果一次性把所有内容都传递给浏览器, 会导致一些问题
+    1. 数据量大, 服务器压力大, 网络传输的压力大, 浪费用户流量
+    2. 用户可能仅仅查看一部分内容
+
+    则需要用分页的方式解决
+    1. 通过页数来实现
+    2. 触底加载更多
+   -->
+
+  <div id="header" style="height: 80px; background-color: orange;"></div>
+  <div id="body" style="height: 1000px; background-color: blue;"></div>
+  <div id="footer" style="height: 100px; background-color: black;"></div>
+
+  <script src="../node_modules/jquery/dist/jquery.min.js"></script>
+  <script>
+    // window(窗口) 的 scroll 事件, 会在窗口滚动时触发
+    $(window).scroll(function () {
+      console.log('窗口在滚动...')
+      // 获取窗口滚动的距离, 即 相对顶部的偏移量
+      const y = $(window).scrollTop() // 不传参 则是读取操作
+      console.log('滚动的偏移量:', y)
+
+      // 内容高
+      const dom_h = $(document).height() // 头+身体+脚
+      console.log('内容高:', dom_h)
+
+      // 窗口高
+      const win_h = $(window).height()
+      console.log('窗口高:', win_h)
+
+      // 触底时的偏移量 = 内容高 - 窗口高
+      const offset_bottom = dom_h - win_h
+      console.log('触底时的偏移量:', offset_bottom)
+
+      // 滚动偏移量有 小数点误差, 需要四舍五入后对比
+      // if (Math.round(y) == offset_bottom) {
+      //   alert('触底!')
+      // }
+
+      // 实战中, 会提前触底操作的触发时机, 更早的去获取更多数据
+      // 这样可以提升用户的体验
+
+      // 必须用 >,  因为 == 存在小数点等问题, 不一定能正好相等
+      if (y > offset_bottom - 200) {
+        alert("触底, 加载更多数据")
+      }
+    })
+  </script>
+</body>
+
+</html>

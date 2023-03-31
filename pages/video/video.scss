@@ -1,0 +1,100 @@
+#body {
+  background-color: #fae8c8;
+
+  > div {
+    // 全局变量: 在 base.css 中设定
+    width: var(--width);
+    margin: 0 auto;
+
+    > .list {
+      > li {
+        transition: 0.2s;
+        cursor: pointer;
+
+        &:hover {
+          box-shadow: 0 0 4px 4px rgba(0, 0, 0, 0.1);
+
+          img {
+            transform: scale(1.1);
+          }
+        }
+
+        // 宽度 = (父宽度 - 10px * 2) / 3
+        // css3 提供了 calc() 函数, 可以进行简单的数学运算
+        // 注意: 运算符两侧必须带有空格间隔
+        width: calc((100% - 10px * 2) / 3);
+        border-radius: 6px;
+        overflow: hidden;
+        margin: 0 10px 10px 0;
+
+        // 选择序号是 3 6 9 .. 3n  的元素, 去掉其右侧的外边距
+        &:nth-child(3n) {
+          margin-right: 0;
+        }
+
+        > div {
+          position: relative;
+          overflow: hidden;
+
+          > div {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            color: white;
+            background-color: rgba(0, 0, 0, 0.5);
+            font-size: 14px;
+            padding: 5px;
+            display: flex;
+            justify-content: space-between;
+          }
+
+          > img {
+            width: 100%;
+            transition: 0.2s;
+          }
+        }
+
+        > p {
+          background-color: white;
+          padding: 10px 10px 20px 10px;
+        }
+      }
+    }
+
+    > .pages {
+      padding: 20px 0;
+      display: flex;
+      justify-content: center;
+
+      > button {
+        width: 70px;
+        height: 40px;
+        color: black;
+        background-color: white;
+      }
+
+      > ul {
+        margin: 0 2px;
+
+        > li {
+          line-height: 40px;
+          width: 40px;
+          background-color: white;
+          margin: 0 2px;
+          text-align: center;
+          cursor: pointer;
+
+          // :active 伪类选择器;  当鼠标按下时 系统添加的特殊样式
+          &:active {
+            opacity: 0.8;
+          }
+          // .active:  class='active'
+          &.active {
+            background-color: orange;
+            color: white;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,74 @@
+#body {
+  background-color: #f7f7f7;
+}
+#body > div {
+  margin: 0 auto;
+  width: var(--width);
+}
+#body > div > .list {
+  flex-direction: column;
+}
+#body > div > .list > li {
+  display: flex;
+  margin-bottom: 10px;
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.1);
+}
+#body > div > .list > li > img {
+  width: 130px;
+  height: 130px;
+}
+#body > div > .list > li > div {
+  display: flex;
+  flex-direction: column;
+  margin-left: 10px;
+  justify-content: space-around;
+}
+#body > div > .list > li > div > b {
+  color: var(--color-primary);
+  font-size: 20px;
+}
+#body > div > .sort {
+  margin-bottom: 10px;
+}
+#body > div > .sort > li {
+  margin-right: 10px;
+  cursor: pointer;
+}
+#body > div > .sort > li.active {
+  color: orange;
+}
+#body > div > .pages {
+  display: flex;
+  justify-content: center;
+  padding: 20px 0;
+}
+#body > div > .pages > button {
+  width: 70px;
+  height: 40px;
+  color: black;
+  background-color: white;
+}
+#body > div > .pages > button:disabled {
+  color: #888;
+}
+#body > div > .pages > ul {
+  margin: 0 2px;
+}
+#body > div > .pages > ul > li {
+  margin: 0 2px;
+  background-color: white;
+  color: black;
+  width: 40px;
+  text-align: center;
+  line-height: 40px;
+  cursor: pointer;
+}
+#body > div > .pages > ul > li:active {
+  opacity: 0.8;
+}
+#body > div > .pages > ul > li.active {
+  background-color: orange;
+  color: white;
+}/*# sourceMappingURL=search.css.map */

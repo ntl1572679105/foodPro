@@ -1,0 +1,75 @@
+#body {
+  background-color: #f7f7f7;
+}
+#body > div {
+  width: var(--width);
+  margin: 0 auto;
+}
+#body > div > .list > li {
+  width: calc((100% - 30px) / 4);
+  overflow: hidden;
+  border-radius: 6px;
+  margin: 0 10px 10px 0;
+  box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.1);
+}
+#body > div > .list > li:nth-child(4n) {
+  margin-right: 0;
+}
+#body > div > .list > li > img {
+  width: 100%;
+  height: 250px;
+}
+#body > div > .list > li > div {
+  padding: 5px;
+}
+#body > div > .list > li > div > div {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+#body > div > .list > li > div > div > span {
+  color: #666;
+  font-size: 14px;
+}
+#body > div > .list > li > div > div > div {
+  display: flex;
+}
+#body > div > .list > li > div > div > div > img {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+}
+#body > div > .pages {
+  display: flex;
+  justify-content: center;
+  padding: 20px 0;
+}
+#body > div > .pages > button {
+  background-color: white;
+  color: #000;
+  width: 70px;
+  height: 40px;
+}
+#body > div > .pages > button:disabled {
+  cursor: no-drop;
+  color: #888;
+}
+#body > div > .pages > ul {
+  margin: 0 2px;
+}
+#body > div > .pages > ul > li {
+  line-height: 40px;
+  width: 40px;
+  text-align: center;
+  background-color: white;
+  color: black;
+  margin: 0 2px;
+  cursor: pointer;
+}
+#body > div > .pages > ul > li:active {
+  opacity: 0.8;
+}
+#body > div > .pages > ul > li.active {
+  background-color: orange;
+  color: white;
+}/*# sourceMappingURL=note.css.map */

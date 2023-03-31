@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>swiper初级</title>
+
+  <link rel="stylesheet" href="../node_modules/swiper/swiper-bundle.min.css">
+
+  <style>
+    .swiper {
+      width: 600px;
+      height: 300px;
+      border: 3px solid red;
+      overflow: hidden;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- 第三方属于 生产力工具, 会用即可 -->
+
+  <div class="swiper">
+    <!-- 这里的class是固定的, 不可修改 -->
+    <div class="swiper-wrapper">
+      <div class="swiper-slide">
+        <img src="../assets/img/index/11.jpg" alt="">
+      </div>
+      <div class="swiper-slide">
+        <img src="../assets/img/index/22.jpg" alt="">
+      </div>
+      <div class="swiper-slide">
+        <img src="../assets/img/index/33.jpg" alt="">
+      </div>
+    </div>
+  </div>
+
+  <!-- 学习第三方代码的使用, 最佳方式: 看官方提供的入门文档 -->
+  <script src="../node_modules/swiper/swiper-bundle.min.js"></script>
+
+  <script>
+    // 初始化 swiper
+
+    // 参数2: 配置项; 可以个性化配置 轮播图的功能
+    var mySwiper = new Swiper('.swiper', {
+      loop: true, //开启 无限循环
+      // 特效:
+      effect: 'cube',
+    })
+  </script>
+</body>
+
+</html>

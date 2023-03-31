@@ -1,0 +1,44 @@
+#body {
+  background-color: #f7f7f7;
+
+  > div {
+    width: var(--width);
+    margin: 0 auto;
+
+    > .list {
+      > li {
+        width: calc((100% - 10px * 3) / 4);
+        margin: 0 10px 10px 0;
+        background-color: white;
+
+        &:nth-child(4n) {
+          margin-right: 0;
+        }
+
+        > img {
+          width: 100%;
+        }
+
+        > p {
+          margin: 5px;
+        }
+
+        > div {
+          display: flex;
+          justify-content: space-between;
+          padding: 5px;
+
+          > span {
+            color: #888;
+            font-size: 14px;
+          }
+
+          > b {
+            color: var(--color-primary);
+            font-size: 20px;
+          }
+        }
+      }
+    }
+  }
+}

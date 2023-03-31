@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>分组滚动 09:44</title>
+  <link rel="stylesheet" href="../node_modules/swiper/swiper-bundle.min.css">
+
+  <style>
+    .swiper {
+      border: 2px solid red;
+      width: 700px;
+      /* height: 320px; */
+    }
+
+    .swiper-slide {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .swiper img {
+      width: 100%;
+      height: 260px;
+      object-fit: cover;
+      border-radius: 6px;
+    }
+
+    ul {
+      margin: 0 auto;
+      width: 700px;
+      padding: 0;
+      display: flex;
+      list-style: none;
+    }
+
+    li {
+      line-height: 2;
+      padding: 0 10px;
+      border-radius: 100px;
+      background-color: #eee;
+      margin: 0 10px 10px 0;
+      cursor: pointer;
+    }
+
+    li.active {
+      background-color: orange;
+    }
+  </style>
+</head>
+
+<body>
+  <ul>
+    <li class="active">早餐</li>
+    <li>午餐</li>
+    <li>晚餐</li>
+    <li>夜宵</li>
+  </ul>
+
+  <div class="swiper">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide">
+        <img src="../assets/img/food/index (10).jpg" alt="">
+        <b>标题</b>
+        <span>描述信息</span>
+      </div>
+    </div>
+  </div>
+
+  <script src="../node_modules/swiper/swiper-bundle.min.js"></script>
+  <script src="../node_modules/jquery/dist/jquery.min.js"></script>
+  <script>
+    // 利用循环 向 .swiper-wrapper 中添加多个 slide
+    for (let i = 11; i < 22; i++) {
+      $('.swiper-wrapper').append(
+        `<div class="swiper-slide">
+        <img src="../assets/img/food/index (${i}).jpg" alt="">
+        <b>标题${i}</b>
+        <span>描述信息${i}</span>
+      </div>`
+      )
+    }
+
+    var mySwiper = new Swiper('.swiper', {
+      slidesPerGroup: 3, // 3个为一组 进行滚动
+      slidesPerView: 3, // 每个页面 显示3个
+      spaceBetween: 10, // 元素之间的间隔
+      // 监听事件
+      on: {
+        // 滑动项变更时
+        slideChange: function () {
+          console.log('改变了，activeIndex为' + this.activeIndex);
+
+          // 由于每页3个, 所以需要除以 3 才能得到对应页数的序号
+          const i = this.activeIndex / 3
+          // 通过序号找到对应的 li 元素 进行激活
+          $('li').eq(i).addClass('active').siblings().removeClass('active')
+        },
+      },
+    })
+
+    $('li').click(function () {
+      $(this).addClass('active').siblings().removeClass('active')
+
+      // 通过 slideTo 方法, 切换到指定的 滑动项
+      // 参数1: 项目的序号 = 激活的 li 的序号 x 3
+      const i = $(this).index()// 当前激活项 li 的序号
+      // 由于 滑动栏目 3个为一组, 所以 滑动的序号 = li序号 x 3
+      mySwiper.slideTo(3 * i)
+    })
+  </script>
+</body>
+
+</html>

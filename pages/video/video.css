@@ -1,0 +1,76 @@
+#body {
+  background-color: #fae8c8;
+}
+#body > div {
+  width: var(--width);
+  margin: 0 auto;
+}
+#body > div > .list > li {
+  transition: 0.2s;
+  cursor: pointer;
+  width: calc((100% - 20px) / 3);
+  border-radius: 6px;
+  overflow: hidden;
+  margin: 0 10px 10px 0;
+}
+#body > div > .list > li:hover {
+  box-shadow: 0 0 4px 4px rgba(0, 0, 0, 0.1);
+}
+#body > div > .list > li:hover img {
+  transform: scale(1.1);
+}
+#body > div > .list > li:nth-child(3n) {
+  margin-right: 0;
+}
+#body > div > .list > li > div {
+  position: relative;
+  overflow: hidden;
+}
+#body > div > .list > li > div > div {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.5);
+  font-size: 14px;
+  padding: 5px;
+  display: flex;
+  justify-content: space-between;
+}
+#body > div > .list > li > div > img {
+  width: 100%;
+  transition: 0.2s;
+}
+#body > div > .list > li > p {
+  background-color: white;
+  padding: 10px 10px 20px 10px;
+}
+#body > div > .pages {
+  padding: 20px 0;
+  display: flex;
+  justify-content: center;
+}
+#body > div > .pages > button {
+  width: 70px;
+  height: 40px;
+  color: black;
+  background-color: white;
+}
+#body > div > .pages > ul {
+  margin: 0 2px;
+}
+#body > div > .pages > ul > li {
+  line-height: 40px;
+  width: 40px;
+  background-color: white;
+  margin: 0 2px;
+  text-align: center;
+  cursor: pointer;
+}
+#body > div > .pages > ul > li:active {
+  opacity: 0.8;
+}
+#body > div > .pages > ul > li.active {
+  background-color: orange;
+  color: white;
+}/*# sourceMappingURL=video.css.map */

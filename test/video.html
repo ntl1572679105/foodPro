@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>视频播放</title>
+</head>
+
+<body>
+  <!-- video 标签:  和 img 都属于多媒体标签 -->
+  <!-- control: 控制器 -->
+  <!-- autoplay: 自动播放; 一些浏览器认为自动播放影响用户体验, 不被允许 -->
+
+  <!-- loop : 循环播放  -->
+  <!-- width和height: 宽高;  如果单独设置 宽 或 高, 则等比例 缩放 -->
+  <!-- 如果 同时设置宽高, 但是比例 与 原视频不同, 此时有适配问题 -->
+
+  <!-- 默认的适配方案: 等比例缩放 显示完整 -->
+  <!-- 利用 css 的 object-fit 属性, 进行方案的调整 -->
+  <!-- cover: 覆盖 - 保持原有比例 充满整个空间 -->
+  <!-- <video src="../assets/video/11.mp4" controls loop width="200" height="200"
+    style="border: 3px solid blue; object-fit: cover;"></video> -->
+
+  <!-- 预加载: 预先加载视频, 用户在没有播放视频之前 提前加载视频内容 -->
+  <!-- 一旦页面上有多个视频, 如果开预加载, 会浪费大量的流量 -->
+  <!-- preload: 是否开启预加载 
+        -- auto: 开启预加载
+        -- none: 不开启预加载, 播放时再加载 
+        -- metadata: 元数据; 仅加载视频的相关信息, 例如 宽高,时长,封面. 但是不加载视频的本体内容
+  -->
+
+  <!-- 不开启预加载, 通常搭配 海报图/封面图 使用: poster -->
+  <video height="400" src="../assets/video/22.mp4" controls preload="none" poster="../assets/img/index/22.jpg"></video>
+</body>
+
+</html>

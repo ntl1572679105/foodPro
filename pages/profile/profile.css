@@ -1,0 +1,89 @@
+body {
+  background-color: #f7f7f7;
+}
+
+#footer {
+  display: none;
+}
+
+#body > div {
+  width: var(--width);
+  margin: 0 auto;
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+#body > div > .sidemenu {
+  background-color: white;
+  width: 20%;
+  padding: 20px;
+  border-radius: 6px;
+  box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.2);
+}
+#body > div > .sidemenu > ul {
+  flex-direction: column;
+  margin-top: 15px;
+}
+#body > div > .sidemenu > ul > li {
+  margin: 10px 0;
+  cursor: pointer;
+}
+#body > div > .sidemenu > ul > li.active {
+  color: var(--color-primary);
+}
+#body > div > .content {
+  min-height: 370px;
+  background-color: white;
+  width: 79%;
+  box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.2);
+  padding: 10px;
+  border-radius: 6px;
+}
+#body > div > .content > div > h3 {
+  padding: 10px;
+  border-radius: 6px;
+  background-color: #f7f7f7;
+}
+#body > div > .content > div > div {
+  margin-top: 10px;
+}
+#body > div > .content > div:nth-child(1) table {
+  width: 100%;
+}
+#body > div > .content > div:nth-child(1) table td {
+  border-bottom: 1px dashed gray;
+  padding: 10px 0;
+}
+#body > div > .content > div:nth-child(1) table td:nth-child(1) {
+  width: 100px;
+}
+#body > div > .content > div#my-photo > div > img {
+  width: 80px;
+  height: 80px;
+  box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.2);
+  border-radius: 50%;
+  margin-bottom: 20px;
+}
+#body > div > .content > div#my-photo > div > button {
+  width: 100px;
+  height: 30px;
+  border-radius: 4px;
+}
+#body > div > .content > div#my-photo > div > ul {
+  height: 400px;
+  overflow: scroll;
+}
+#body > div > .content > div#my-photo > div > ul > li {
+  margin: 0 10px 10px 0;
+  cursor: pointer;
+}
+#body > div > .content > div#my-photo > div > ul > li > img {
+  width: 70px;
+  height: 70px;
+}
+#body > div > .content > div:nth-child(7) button {
+  width: 100px;
+  height: 34px;
+  border-radius: 4px;
+}/*# sourceMappingURL=profile.css.map */

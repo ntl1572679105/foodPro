@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Animate.css 库</title>
+
+  <!-- 1. 先引入第三方库 -->
+  <link rel="stylesheet" href="../node_modules/animate.css/animate.min.css">
+
+  <style>
+    h1 {
+      display: inline-block;
+      background-color: #f7f7f7;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- 使用动画时, 必须先引入 基础类 animate__animated -->
+  <!-- 然后引入 个性化的动画类 -->
+
+  <!-- animate__infinite: 重复无限次 -->
+  <h1 class="animate__animated animate__swing animate__infinite">Hello Animate</h1>
+
+  <img class="animate__animated" src="../assets/img/food/index (1).jpg" width="100" alt="">
+
+  <script src="../node_modules/jquery/dist/jquery.min.js"></script>
+  <script>
+    // 点击图片时, 添加动画 
+    $('img').click(function () {
+      // 动画触发的条件: 动画类需要 从无到有
+      // 再次点击: 因为之前已经添加过动画类, 已经存在 无法重复添加
+      $(this).addClass('animate__heartBeat')
+    })
+
+    // 新的事件: animationend  当元素上的 关键帧动画 执行结束时触发
+    // 思路: 当元素上的关键帧动画结束时, 立刻删除动画类
+
+    // on: 万能的事件监听方法, 常用与委托操作;  也可以绑定一些非常见事件
+    $('img').on('animationend', function () {
+      $(this).removeClass('animate__heartBeat')
+    })
+  </script>
+</body>
+
+</html>

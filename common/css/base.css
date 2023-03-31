@@ -1,0 +1,105 @@
+/* 针对本项目的 个性化全局设定  base.css*/
+
+/* 全局变量 */
+:root {
+  /* 内容的固定宽度 */
+  --width: 1000px;
+  /* 主题色 */
+  --color-primary: #f75148;
+}
+
+#body {
+  min-width: var(--width);
+}
+
+/* 符合当前项目的个性化按钮 */
+button {
+  background-color: var(--color-primary);
+  color: white;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+/* 互动效果: 激活 */
+button:active {
+  opacity: 0.8;
+}
+
+input {
+  /* 外轮廓: 激活时带有的 */
+  outline: none;
+  border: none;
+  font-size: 16px;
+}
+
+/* 面包屑 */
+.breadcrumb {
+  padding: 10px 0;
+}
+
+/* 单行 */
+.line-1 {
+  overflow: hidden;
+  /* 文本不折行 */
+  white-space: nowrap;
+  /* 文本超出部分: 用...显示 */
+  text-overflow: ellipsis;
+}
+
+/* 两行 */
+/* 百度搜: css 文本 两行 */
+.line-2 {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  line-clamp: 2;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  text-overflow: -o-ellipsis-lastline;
+
+  /* 设置行高 */
+  line-height: 1.3;
+  /* 两行的高: 1.3 * 2 */
+  height: 2.6em;
+}
+
+/* 加载更多相关 */
+.loadmore,
+.nomore {
+  font-size: 22px;
+  color: #555;
+  text-align: center;
+  padding: 20px 0;
+}
+/* 初始状态: 没有更多数据 应该隐藏 */
+.nomore {
+  display: none;
+}
+
+/* i -> icon  图标; 行内块 可以指定宽高 */
+i {
+  display: inline-block;
+}
+
+/* 滚动条美化 */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+/* track: 轨道, 滑轨 */
+::-webkit-scrollbar-track {
+  background-color: #ddd9cf;
+}
+
+/* 滑块: thumb */
+::-webkit-scrollbar-thumb {
+  background-color: #b3aa94;
+  border-radius: 100px;
+}
+
+/* 拐角: 右下角 */
+::-webkit-scrollbar-corner {
+  background-color: #ddd9cf;
+}

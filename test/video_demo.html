@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>首页视频效果</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    ul {
+      width: 1000px;
+      display: flex;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      justify-content: space-between;
+    }
+
+    li {
+      /* 滤镜效果: */
+      /* blur: 值越大越模糊 */
+      filter: blur(2px);
+
+      transition: 0.4s;
+
+      width: calc((100% - 3 * 10px) / 4);
+      border: 2px solid red;
+      overflow: hidden;
+      height: 500px;
+      border-radius: 6px;
+    }
+
+    li>video {
+      /* 100% 代表与父元素宽度一样, 则父元素宽度变化时, 视频也会随着变化 */
+      /* width: 100%; */
+
+      /* 直接设置固定宽度, 则不会随父元素而变化 */
+      width: 400px;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* li激活时 */
+    li.active {
+      /* 去掉灰色滤镜 */
+      filter: blur(0);
+      width: 400px;
+    }
+
+    /* 非激活时 */
+    li.noactive {
+      width: calc((100% - 400px - 3 * 10px) / 3);
+    }
+  </style>
+</head>
+
+<body>
+  <ul>
+    <li><video src="../assets/video/11.mp4" preload="metadata"></video></li>
+    <li><video src="../assets/video/22.mp4" preload="metadata"></video></li>
+    <li><video src="../assets/video/33.mp4" preload="metadata"></video></li>
+    <li>
+      <video src="../assets/video/44.mp4" preload="metadata"></video>
+    </li>
+  </ul>
+
+  <script src="../node_modules/jquery/dist/jquery.min.js"></script>
+  <script>
+    $('li').click(function () {
+      // 根据激活状态 来调整其他元素的样式
+      if ($(this).hasClass('active')) {
+        // 当前元素激活, 则删除激活状态 关闭视频的播放
+        $(this).removeClass('active').children().trigger('pause')
+
+        // 其他元素 去掉 非激活样式
+        $(this).siblings().removeClass('noactive')
+      } else {
+        // 当前元素非激活, 则添加激活,移除非激活; 其他元素不激活
+        // 删除其他元素的激活, 来保证同一时间 只有一个元素处于激活状态
+        $(this).addClass('active').removeClass('noactive')
+          .siblings().addClass('noactive').removeClass('active')
+
+        // 激活时要触发 子元素 video 标签的 播放
+        // play
+        // children():  用于查找子元素
+        $(this).children().trigger('play')
+        // 暂停其他元素中的 视频播放
+        $(this).siblings().children().trigger('pause')
+      }
+    })
+  </script>
+</body>
+
+</html>

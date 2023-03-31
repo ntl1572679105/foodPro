@@ -1,0 +1,118 @@
+body {
+  background-color: #f7f7f7;
+}
+
+#footer {
+  display: none;
+}
+
+#body {
+  > div {
+    width: var(--width);
+    margin: 0 auto;
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+
+    > .sidemenu {
+      background-color: white;
+      width: 20%;
+      padding: 20px;
+      border-radius: 6px;
+      box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.2);
+
+      > ul {
+        flex-direction: column;
+        margin-top: 15px;
+
+        > li {
+          margin: 10px 0;
+          cursor: pointer;
+
+          &.active {
+            color: var(--color-primary);
+          }
+        }
+      }
+    }
+
+    > .content {
+      min-height: 370px;
+
+      background-color: white;
+      width: 79%;
+      box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.2);
+      padding: 10px;
+      border-radius: 6px;
+
+      > div {
+        > h3 {
+          padding: 10px;
+          border-radius: 6px;
+          background-color: #f7f7f7;
+        }
+
+        > div {
+          margin-top: 10px;
+        }
+      }
+
+      > div:nth-child(1) {
+        table {
+          // background-color: #eee;
+          width: 100%;
+
+          td {
+            &:nth-child(1) {
+              width: 100px;
+            }
+
+            border-bottom: 1px dashed gray;
+            padding: 10px 0;
+          }
+        }
+      }
+
+      > div#my-photo {
+        > div {
+          > img {
+            width: 80px;
+            height: 80px;
+            box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.2);
+            border-radius: 50%;
+            margin-bottom: 20px;
+          }
+          > button {
+            width: 100px;
+            height: 30px;
+            border-radius: 4px;
+          }
+          > ul {
+            height: 400px;
+            // 超出部分, 滚动查看
+            overflow: scroll;
+
+            > li {
+              margin: 0 10px 10px 0;
+              cursor: pointer;
+
+              > img {
+                width: 70px;
+                height: 70px;
+              }
+            }
+          }
+        }
+      }
+
+      > div:nth-child(7) {
+        button {
+          width: 100px;
+          height: 34px;
+          border-radius: 4px;
+        }
+      }
+    }
+  }
+}

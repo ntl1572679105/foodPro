@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>swiper 09:01</title>
+
+  <link rel="stylesheet" href="../node_modules/swiper/swiper-bundle.min.css">
+
+  <style>
+    .swiper {
+      width: 300px;
+      height: 600px;
+    }
+
+    .swiper-pagination-bullet {
+      width: 14px;
+      height: 14px;
+      background-color: #aaa;
+      opacity: 1;
+    }
+
+    /* 激活时 */
+    .swiper-pagination-bullet-active {
+      background-color: blue;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="swiper">
+    <!-- 基础的滚动项 容器: class名称固定 -->
+    <div class="swiper-wrapper">
+      <!-- 具体的滚动项目: -->
+      <div class="swiper-slide">
+        <img src="../assets/img/index/11.jpg" alt="">
+      </div>
+
+      <div class="swiper-slide">
+        <img src="../assets/img/index/22.jpg" alt="">
+      </div>
+
+      <div class="swiper-slide">
+        <img src="../assets/img/index/33.jpg" alt="">
+      </div>
+
+      <div class="swiper-slide">
+        <img src="../assets/img/index/44.jpg" alt="">
+      </div>
+    </div>
+    <!-- 分页器 -->
+    <div class="swiper-pagination"></div>
+    <!-- 前进后退 -->
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+  </div>
+
+  <script src="../node_modules/swiper/swiper-bundle.min.js"></script>
+
+  <script>
+    // 初始化:
+    var mySwiper = new Swiper('.swiper', {
+      loop: true, // 无限循环
+      // 默认配置中, 存在一个 disableOnInteraction:true
+      // 代表: 当用户操作swiper之后, 则 自动滚动 失效
+      // autoplay: true, // 自动滚动 开启
+
+      // 个性化配置方式: 
+      autoplay: {
+        // 用户触摸后让自动滚动失效: 假; -- 代表关闭此功能
+        disableOnInteraction: false,
+        // 鼠标进入时, 暂停自动播放
+        pauseOnMouseEnter: true,
+      },
+      // 配置分页器
+      pagination: {
+        el: ".swiper-pagination",
+        // 个性化配置样式
+        clickable: true, //可以点击
+      },
+      // 前进后退
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+    })
+  </script>
+</body>
+
+</html>

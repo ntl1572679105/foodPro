@@ -1,0 +1,33 @@
+// 浏览器仅支持 css 类型的文件
+// 预编译类型的 scss/sass 需要 编译成 css 才能使用
+// 用 插件: live sass compiler 可以完成实时的编译操作
+#footer {
+  background-color: black;
+  // 最小宽度
+  min-width: var(--width);
+
+  > div {
+    // --width : 在 base.css 中声明的 全局变量, 代表内容宽度
+    width: var(--width);
+    // 一个固定宽度的块元素 如何居中?
+    margin: 0 auto;
+    // background-color: white;
+    padding: 30px 0;
+
+    // 竖向排列 横向居中
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    a {
+      color: white;
+      margin: 5px;
+    }
+
+    p {
+      color: white;
+      margin-top: 5px;
+      font-size: 12px;
+    }
+  }
+}

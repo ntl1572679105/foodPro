@@ -1,0 +1,64 @@
+#body {
+  background-color: #f7f7f7;
+}
+#body > div {
+  width: var(--width);
+  margin: 0 auto;
+}
+#body > div > .list > li {
+  width: calc((100% - 30px) / 4);
+  margin: 0 10px 10px 0;
+  background-color: white;
+}
+#body > div > .list > li:nth-child(4n) {
+  margin-right: 0;
+}
+#body > div > .list > li > img {
+  width: 100%;
+}
+#body > div > .list > li > p {
+  margin: 5px;
+}
+#body > div > .list > li > div {
+  display: flex;
+  justify-content: space-between;
+  padding: 5px;
+}
+#body > div > .list > li > div > span {
+  color: #888;
+  font-size: 14px;
+}
+#body > div > .list > li > div > b {
+  color: var(--color-primary);
+  font-size: 20px;
+}
+#body > div > .pages {
+  display: flex;
+  justify-content: center;
+  padding: 20px 0;
+}
+#body > div > .pages > button {
+  background-color: white;
+  color: black;
+  width: 70px;
+  height: 40px;
+}
+#body > div > .pages > ul {
+  margin: 0 2px;
+}
+#body > div > .pages > ul > li {
+  width: 40px;
+  text-align: center;
+  line-height: 40px;
+  background-color: white;
+  color: black;
+  margin: 0 2px;
+  cursor: pointer;
+}
+#body > div > .pages > ul > li:active {
+  opacity: 0.8;
+}
+#body > div > .pages > ul > li.active {
+  background-color: orange;
+  color: white;
+}/*# sourceMappingURL=mall.css.map */

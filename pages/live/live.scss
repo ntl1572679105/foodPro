@@ -1,0 +1,61 @@
+#body {
+  background-color: #f7f7f7;
+
+  > div {
+    width: var(--width);
+    margin: 0 auto;
+
+    > .list {
+      > li {
+        width: calc((100% - 10px * 2) / 3);
+        margin: 0 10px 10px 0;
+
+        &:nth-child(3n) {
+          margin-right: 0;
+        }
+
+        > p {
+          padding: 5px 0;
+        }
+
+        > div {
+          position: relative;
+          border-radius: 6px;
+          overflow: hidden;
+          color: white;
+          font-size: 14px;
+
+          > img {
+            width: 100%;
+          }
+
+          > .hn {
+            padding: 4px;
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: 50%;
+            text-align: right;
+            background-image: linear-gradient(
+              to right,
+              rgba(0, 0, 0, 0),
+              rgba(0, 0, 0, 0.5)
+            );
+          }
+
+          > .nickname {
+            bottom: 0;
+            position: absolute;
+            width: 50%;
+            padding: 4px;
+            background-image: linear-gradient(
+              to left,
+              rgba(0, 0, 0, 0),
+              rgba(0, 0, 0, 0.5)
+            );
+          }
+        }
+      }
+    }
+  }
+}
